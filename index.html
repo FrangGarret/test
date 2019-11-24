@@ -1,109 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-    <title>贝塞尔曲线动画调研</title>
-    <style>
-        html {
-            background: #000;
-        }
-
-        /* //定义球的初始值，位置是绝对定位； */
-        .ball {
-            height: 100px;
-            width: 100px;
-            border-radius: 50%;
-            position: absolute;
-            bottom: 40px;
-            z-index: 10;
-            left: 40px;
-            background: #FFFFFF;
-            /*box-shadow: 0 0 50px #fff;*/
-            filter: blur(10px);
-            transform: translate3d(0, 0, 0);
-            
-        }
-        .ball1 {
-            height: 80px;
-            width: 80px;
-            border-radius: 50%;
-            position: absolute;
-            bottom: 40px;
-            z-index: 10;
-            left: 40px;
-            background: #fff;
-            filter: blur(10px);
-            transform: translate3d(0, 0, 0);
-        }
-
-        /* //定义动画的流程 */
-        .run_top_right {
-            display: block;
-            animation: run-right-right .2s 0.2s 1 linear, run-right-top .2s 0.2s 1 cubic-bezier(.07,.39,.19,1);
-            /* animation: run-right-right 3s 0.4s 1 linear, run-right-top 3s 0.4s 1 ease-out; */
-            animation-fill-mode: forwards;
-        }
-        .run_top_right2 {
-            display: block;
-            animation: run-right-right .4s .4s 1 linear, run-right-top .4s .4s 1 cubic-bezier(.07,.39,.19,1);
-            /* animation: run-right-right 3s 0.4s 1 linear, run-right-top 3s 0.4s 1 ease-out; */
-            animation-fill-mode: forwards;
-        }
-
-        /* //向上走的动画初始及结尾值 */
-        @keyframes run-right-top {
-            0% {
-                bottom: 40px;
-                
-            }
-
-            100% {
-                bottom: 500px;
-                
-            }
-        }
-
-        /* //向上右的动画初始及结尾值 */
-        @keyframes run-right-right {
-            0% {
-                left: 40px;
-                transform: scale(1);
-                opacity:1;
-                
-            }
-
-            100% {
-                left: 350px;
-                transform: scale(0.3);
-                opacity:0;
-            }
-        }
-        #all {
-	        width:97%;
-	        height:200px;
-	        margin-left:1.5%;
-	        margin-top:1.6%;
-	        border-radius:5px;
-	        box-shadow:rgb(11, 234, 235) 0px 0px 18px inset;
-	    }
-    </style>
-</head>
-
-<body>
-	<div id="all">
-		
-	</div>
-    <div class="ball run_top_right"></div>
-    <div class="ball run_top_right2" id="run_top_right2"></div>
-</body>
-
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title></title>
+	</head>
+	<body>
+		<div id="btn" style="margin:0 auto;width: 50%;height: 50px;text-align: center;line-height: 50px;font-size: 24px;background: #ccc;color: #FFFFFF;">
+			打开金管家webview
+		</div>
+	</body>
 </html>
+<script src="https://ehis-vitality-dmzstg1.pingan.com.cn/vitality/vitality/lib/eruda.min.js"></script>
+<script>
+    eruda.init();
+</script>
+<script src="https://elis-ecocdn.pingan.com.cn/lilith/lib/PALifeOpen.1.6.min.js"></script>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script type="text/javascript">
-	document.getElementById('run_top_right2').addEventListener('animationend',function(e){
-		if(e.animationName == 'run-right-top'){
-//			alert(0)
-		}
+	if (!window._PALifeOpenFinishedConfig) {
+    window._PALifeOpenFinishedConfig = true
+    PALifeOpen.config()
+}
+	
+	
+	
+	$('#btn').click(function(){
+		
+		var param = {
+            uri: 'pars://pars.pingan.com/webview/open_url?wkpop=Y&url='+encodeURIComponent('https://franggarret.github.io/test/index.html')
+        }
+		console.log(param)
+        PALifeOpen.executeUri(
+        	param,
+        function (data) {
+            console.debug('success', data);
+            
+        },
+        function (data) {
+            console.debug('failed ', data);
+            
+        })
 	})
 	
 </script>
