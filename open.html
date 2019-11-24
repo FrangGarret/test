@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title></title>
+	</head>
+	<body>
+		<div id="btn" style="margin:0 auto;width: 50%;height: 50px;text-align: center;line-height: 50px;font-size: 24px;background: #ccc;color: #FFFFFF;">
+			打开金管家webview
+		</div>
+	</body>
+</html>
+<script src="https://ehis-vitality-dmzstg1.pingan.com.cn/vitality/vitality/lib/eruda.min.js"></script>
+<script>
+    eruda.init();
+</script>
+<script src="https://elis-ecocdn.pingan.com.cn/lilith/lib/PALifeOpen.1.6.min.js"></script>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+	if (!window._PALifeOpenFinishedConfig) {
+    window._PALifeOpenFinishedConfig = true
+    PALifeOpen.config()
+}
+	
+	
+	
+	$('#btn').click(function(){
+		
+		var param = {
+            uri: 'pars://pars.pingan.com/webview/open_url?wkpop=Y&url='+encodeURIComponent('https://franggarret.github.io/test/index.html')
+        }
+		console.log(param)
+        PALifeOpen.executeUri(
+        	param,
+        function (data) {
+            console.debug('success', data);
+            
+        },
+        function (data) {
+            console.debug('failed ', data);
+            
+        })
+	})
+	
+</script>
