@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<div id="btn" style="margin:0 auto;width: 50%;height: 50px;text-align: center;line-height: 50px;font-size: 24px;background: #ccc;color: #FFFFFF;">
-			打开金管家webview
+			
 		</div>
 	</body>
 </html>
@@ -15,32 +15,15 @@
 <script>
     eruda.init();
 </script>
-<script src="https://elis-ecocdn.pingan.com.cn/lilith/lib/PALifeOpen.1.6.min.js"></script>
+<script src="https://elis-ecocdn.pingan.com.cn/lilith/lib/PALifeOpen.1.3.min.js"></script>
 <script src="jquery.min.js"></script>
 <script type="text/javascript">
-	if (!window._PALifeOpenFinishedConfig) {
-    window._PALifeOpenFinishedConfig = true
+	
     PALifeOpen.config()
-}
+	var CV = PALifeOpen.getCV();
+	
+	$('#btn').text('当前的版本是'+CV)
 	
 	
-	
-	$('#btn').click(function(){
-		
-		var param = {
-            uri: 'pars://pars.pingan.com/webview/open_url?wkpop=Y&url='+encodeURIComponent('https://franggarret.github.io/test/index3.html')
-        }
-		console.log(param)
-        PALifeOpen.executeUri(
-        	param,
-        function (data) {
-            console.debug('success', data);
-            
-        },
-        function (data) {
-            console.debug('failed ', data);
-            
-        })
-	})
 	
 </script>
