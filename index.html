@@ -23,6 +23,13 @@
 	var CV = PALifeOpen.getCV();
 	
 	$('#btn').text('当前的版本是'+CV)
+
+
+	if(CV == 0){
+		alert('您未获取到当前的版本号')
+	}else{
+		console.log('成功获取当前版本号');
+	}
 	
 	
 	
